@@ -5,7 +5,7 @@ const {connectDB} = require('./configs/mongodb.js')
  require('dotenv').config()
 const {clerkWebhooks} = require('./controllers/webhooks.js')
 //initialize express
-const app =express()
+const app = express()
 
 //connect to db
  connectDB()
