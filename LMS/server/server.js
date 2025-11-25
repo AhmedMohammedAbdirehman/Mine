@@ -3,7 +3,7 @@ const express = require('express')
 const cors = require('cors')
 const {connectDB } = require('./configs/mongodb.js')
  require('dotenv').config()
-const clerkWebhooks = require('./controllers/webhooks.js')
+const {clerkWebhooks} = require('./controllers/webhooks.js')
 //initialize express
 const app =express()
 
@@ -12,11 +12,11 @@ const app =express()
 
 //middlewares
 app.use(cors())
-
+app.use(express.json())
 //Routes 
 app.get('/', (req, res)=>res.send("API working"))
 
-app.post('/clerk', express.json(),clerkWebhooks)
+app.post('/clerk',clerkWebhooks)
 
 
 //port
