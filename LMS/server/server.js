@@ -32,6 +32,10 @@ app.get('/', (req, res)=>res.send("API working"))
 
 app.post('/clerk',clerkWebhooks)
 
+app.post('/test-webhook', (req, res) => {
+    console.log('Webhook received:', req.body);
+    res.json({ received: true });
+});
 
 //port
 const PORT = process.env.PORT || 5000
